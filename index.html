@@ -58,43 +58,17 @@
       line-height: 1.6;
     }
 
-    /* Waitlist Form */
-    .waitlist-form {
-      display: flex;
-      gap: 10px;
-      width: 100%;
-      max-width: 450px;
-      margin-bottom: 20px;
-    }
-    input[type="email"] {
-      flex: 1;
-      padding: 15px;
-      border: none;
-      background: rgba(255, 255, 255, 0.95); 
-      color: #1a1a1a;
-      border-radius: 5px;
+    /* Scroll indicator */
+    .scroll-indicator {
+      margin-top: 20px;
       font-size: 1rem;
-      outline: none;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      color: rgba(255, 255, 255, 0.8);
+      animation: bounce 2s infinite;
     }
-    input[type="email"]::placeholder {
-      color: #777;
-    }
-    button.submit-btn {
-      padding: 15px 30px;
-      background-color: #1a1a1a; 
-      color: #ffffff;
-      border: none;
-      border-radius: 5px;
-      font-size: 1rem;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s ease, transform 0.2s;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    button.submit-btn:hover {
-      background-color: #333333;
-      transform: translateY(-2px);
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+      40% {transform: translateY(-10px);}
+      60% {transform: translateY(-5px);}
     }
 
     /* Unmute Button */
@@ -122,7 +96,7 @@
       position: relative;
       z-index: 1;
       background-color: transparent; 
-      padding: 100px 20px;
+      padding: 100px 20px 40px 20px;
       text-align: center;
     }
     .features-section h2 {
@@ -169,6 +143,64 @@
       line-height: 1.6;
     }
 
+    /* Bottom Call-to-Action & Waitlist Form */
+    .bottom-cta {
+      position: relative;
+      z-index: 1;
+      padding: 80px 20px 40px 20px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    .bottom-cta h2 {
+      font-size: 2.5rem;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+    .bottom-cta p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.9);
+      margin-bottom: 30px;
+      max-width: 500px;
+    }
+    .waitlist-form {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      max-width: 450px;
+    }
+    input[type="email"] {
+      flex: 1;
+      padding: 15px;
+      border: none;
+      background: rgba(255, 255, 255, 0.95); 
+      color: #1a1a1a;
+      border-radius: 5px;
+      font-size: 1rem;
+      outline: none;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    input[type="email"]::placeholder {
+      color: #777;
+    }
+    button.submit-btn {
+      padding: 15px 30px;
+      background-color: #1a1a1a; 
+      color: #ffffff;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease, transform 0.2s;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    button.submit-btn:hover {
+      background-color: #333333;
+      transform: translateY(-2px);
+    }
+
     /* Legal Footer */
     .footer {
       position: relative;
@@ -176,7 +208,7 @@
       padding: 40px 20px;
       text-align: center;
       border-top: 1px solid rgba(255,255,255,0.2);
-      margin-top: 100px;
+      margin-top: 40px;
     }
     .footer p {
       font-size: 0.85rem;
@@ -191,19 +223,6 @@
     .footer a:hover {
       color: #ffffff;
       text-decoration: underline;
-    }
-    
-    /* Scroll indicator */
-    .scroll-indicator {
-      margin-top: 60px;
-      font-size: 1rem;
-      color: rgba(255, 255, 255, 0.8);
-      animation: bounce 2s infinite;
-    }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
-      40% {transform: translateY(-10px);}
-      60% {transform: translateY(-5px);}
     }
   </style>
 </head>
@@ -224,13 +243,8 @@
   <!-- Hero Section -->
   <div class="hero">
     <h1>LEELA</h1>
-    <p class="subtitle">Transform your digital books into immersive, cinematic audio dramas. Join the waitlist for early access.</p>
+    <p class="subtitle">Transform your digital books into immersive, cinematic audio dramas.</p>
     
-    <form class="waitlist-form" action="YOUR_FORMSPREE_LINK" method="POST">
-      <input type="email" name="email" placeholder="Enter your email address" required>
-      <button type="submit" class="submit-btn">Join Waitlist</button>
-    </form>
-
     <div class="scroll-indicator">
       ↓ Scroll to discover features ↓
     </div>
@@ -266,6 +280,17 @@
       </div>
 
     </div>
+  </div>
+
+  <!-- Bottom CTA & Waitlist -->
+  <div class="bottom-cta">
+    <h2>Ready to listen?</h2>
+    <p>Join the waitlist for early access to the Leela beta.</p>
+    
+    <form class="waitlist-form" action="YOUR_FORMSPREE_LINK" method="POST">
+      <input type="email" name="email" placeholder="Enter your email address" required>
+      <button type="submit" class="submit-btn">Join Waitlist</button>
+    </form>
   </div>
 
   <!-- Legal Footer -->
