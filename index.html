@@ -9,13 +9,14 @@
       margin: 0;
       padding: 0;
       font-family: 'Helvetica Neue', Arial, sans-serif;
-      background-color: #0a0a0a;
-      color: #ffffff;
+      /* Soft blended cream/lavender/pink gradient */
+      background: linear-gradient(135deg, #f1f7fe 0%, #f2efff 50%, #fef1f8 100%);
+      color: #1a1a1a; /* Dark text for readability */
     }
     
-    /* Fixed Video Background */
+    /* Fixed Video Background (Tinted subtly) */
     .video-container {
-      position: fixed; /* Keeps video locked in place while scrolling */
+      position: fixed; 
       top: 0;
       left: 0;
       width: 100%;
@@ -27,10 +28,10 @@
       min-width: 100%;
       min-height: 100%;
       object-fit: cover;
-      opacity: 0.4; 
+      opacity: 0.15; /* Lower opacity lets the creamy colors shine through */
     }
 
-    /* Hero Section (Top) */
+    /* Hero Section */
     .hero {
       position: relative;
       z-index: 1;
@@ -38,7 +39,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      min-height: 100vh; /* Takes up full first screen */
+      min-height: 100vh;
       text-align: center;
       padding: 0 20px;
     }
@@ -46,16 +47,17 @@
       font-size: 4.5rem;
       margin-bottom: 10px;
       letter-spacing: 4px;
+      color: #1a1a1a;
     }
     p.subtitle {
-      font-size: 1.2rem;
-      color: #e0e0e0;
+      font-size: 1.25rem;
+      color: #4a4a4a;
       max-width: 550px;
       margin-bottom: 40px;
       line-height: 1.6;
     }
 
-    /* Waitlist Form */
+    /* Waitlist Form (Updated for light background) */
     .waitlist-form {
       display: flex;
       gap: 10px;
@@ -66,20 +68,20 @@
     input[type="email"] {
       flex: 1;
       padding: 15px;
-      border: 1px solid #555;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
+      border: 1px solid rgba(0,0,0,0.1); /* Subtle dark border */
+      background: rgba(255, 255, 255, 0.8); /* Semi-transparent white input */
+      color: #1a1a1a;
       border-radius: 5px;
       font-size: 1rem;
       outline: none;
     }
     input[type="email"]::placeholder {
-      color: #aaa;
+      color: #777;
     }
     button.submit-btn {
       padding: 15px 30px;
-      background-color: #ffffff;
-      color: #000000;
+      background-color: #1a1a1a; /* Black button with white text */
+      color: #ffffff;
       border: none;
       border-radius: 5px;
       font-size: 1rem;
@@ -88,17 +90,17 @@
       transition: background 0.3s ease;
     }
     button.submit-btn:hover {
-      background-color: #cccccc;
+      background-color: #333333;
     }
 
-    /* Unmute Button */
+    /* Unmute Button (Dark colors) */
     .unmute-btn {
-      position: fixed; /* Keep it on screen when scrolling */
+      position: fixed;
       top: 30px;
       right: 30px;
-      background: rgba(0, 0, 0, 0.6);
-      color: #fff;
-      border: 1px solid rgba(255, 255, 255, 0.3);
+      background: rgba(255, 255, 255, 0.7);
+      color: #1a1a1a;
+      border: 1px solid rgba(0, 0, 0, 0.1);
       padding: 10px 20px;
       border-radius: 50px;
       cursor: pointer;
@@ -107,21 +109,21 @@
       transition: background 0.3s;
     }
     .unmute-btn:hover {
-      background: rgba(255, 255, 255, 0.2);
+      background: rgba(255, 255, 255, 0.9);
     }
 
     /* Features Section */
     .features-section {
       position: relative;
       z-index: 1;
-      background: linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,0.95) 20%, rgba(10,10,10,1) 100%);
+      background-color: transparent; /* Remove dark gradient fade */
       padding: 100px 20px;
       text-align: center;
     }
     .features-section h2 {
       font-size: 2.5rem;
       margin-bottom: 60px;
-      color: #ffffff;
+      color: #1a1a1a;
     }
     .feature-grid {
       display: grid;
@@ -130,62 +132,65 @@
       max-width: 1000px;
       margin: 0 auto;
     }
+    
+    /* Feature Cards (Premium White Cards with Shadows) */
     .feature-card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.1);
+      background: #ffffff;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* Soft, premium shadow */
+      border: none;
       padding: 30px;
       border-radius: 12px;
       text-align: left;
-      transition: transform 0.3s ease;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
     .feature-card:hover {
       transform: translateY(-5px);
-      background: rgba(255, 255, 255, 0.08);
+      box-shadow: 0 6px 30px rgba(0,0,0,0.06);
     }
     .feature-icon {
       font-size: 2.5rem;
       margin-bottom: 20px;
     }
     .feature-title {
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: bold;
       margin-bottom: 15px;
-      color: #ffffff;
+      color: #1a1a1a;
     }
     .feature-desc {
-      font-size: 0.95rem;
-      color: #aaaaaa;
+      font-size: 1rem;
+      color: #555555;
       line-height: 1.6;
     }
 
-    /* Legal Footer */
+    /* Legal Footer (Updated colors) */
     .footer {
       position: relative;
       z-index: 1;
-      background-color: #0a0a0a;
       padding: 40px 20px;
       text-align: center;
-      border-top: 1px solid #222;
+      border-top: 1px solid rgba(0,0,0,0.05);
+      margin-top: 100px;
     }
     .footer p {
       font-size: 0.85rem;
-      color: #777777;
+      color: #888888;
       margin: 5px 0;
     }
     .footer a {
-      color: #999999;
+      color: #666666;
       text-decoration: none;
       transition: color 0.3s;
     }
     .footer a:hover {
-      color: #ffffff;
+      color: #1a1a1a;
     }
     
     /* Scroll indicator */
     .scroll-indicator {
       margin-top: 60px;
-      font-size: 0.9rem;
-      color: #888;
+      font-size: 1rem;
+      color: #666666;
       animation: bounce 2s infinite;
     }
     @keyframes bounce {
@@ -197,7 +202,7 @@
 </head>
 <body>
 
-  <!-- Background Video -->
+  <!-- Background Video Placeholder -->
   <div class="video-container">
     <video id="bg-video" autoplay loop muted playsinline>
       <source src="background.mp4" type="video/mp4">
@@ -259,7 +264,7 @@
   <!-- Legal Footer -->
   <div class="footer">
     <p>&copy; 2026 Leela Audio. All Rights Reserved.</p>
-    <p>Founded by [Your Name]. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    <p>Created by The Leela Team. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
   </div>
 
   <!-- Audio Script -->
