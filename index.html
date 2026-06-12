@@ -29,7 +29,7 @@
       min-width: 100%;
       min-height: 100%;
       object-fit: cover;
-      opacity: 0.5; /* Darkens the video so text is readable */
+      opacity: 0.5;
     }
 
     /* Main Content */
@@ -49,7 +49,7 @@
       margin-bottom: 10px;
       letter-spacing: 3px;
     }
-    p {
+    p.subtitle {
       font-size: 1.2rem;
       color: #cccccc;
       max-width: 500px;
@@ -95,7 +95,7 @@
     /* Unmute Button */
     .unmute-btn {
       position: absolute;
-      bottom: 30px;
+      top: 30px;
       right: 30px;
       background: rgba(0, 0, 0, 0.6);
       color: #fff;
@@ -109,6 +109,28 @@
     }
     .unmute-btn:hover {
       background: rgba(255, 255, 255, 0.2);
+    }
+
+    /* Legal Footer */
+    .footer {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      z-index: 10;
+    }
+    .footer p {
+      font-size: 0.75rem;
+      color: #777777;
+      margin: 5px 0;
+    }
+    .footer a {
+      color: #999999;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    .footer a:hover {
+      color: #ffffff;
     }
   </style>
 </head>
@@ -129,12 +151,18 @@
   <!-- Waitlist Content -->
   <div class="content">
     <h1>LEELA</h1>
-    <p>Transform your digital books into immersive, cinematic audio dramas. Join the waitlist for early access.</p>
+    <p class="subtitle">Transform your digital books into immersive, cinematic audio dramas. Join the waitlist for early access.</p>
     
     <form class="waitlist-form" action="YOUR_FORMSPREE_LINK" method="POST">
       <input type="email" name="email" placeholder="Enter your email address" required>
       <button type="submit" class="submit-btn">Join Waitlist</button>
     </form>
+  </div>
+
+  <!-- Legal Footer -->
+  <div class="footer">
+    <p>&copy; 2026 Leela Audio. All Rights Reserved.</p>
+    <p>Founded by [Your Name]. <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
   </div>
 
   <!-- Audio Script -->
