@@ -8,16 +8,14 @@
     body, html {
       margin: 0;
       padding: 0;
-      height: 100%;
       font-family: 'Helvetica Neue', Arial, sans-serif;
       background-color: #0a0a0a;
       color: #ffffff;
-      overflow: hidden;
     }
     
-    /* Video Background */
+    /* Fixed Video Background */
     .video-container {
-      position: absolute;
+      position: fixed; /* Keeps video locked in place while scrolling */
       top: 0;
       left: 0;
       width: 100%;
@@ -29,32 +27,32 @@
       min-width: 100%;
       min-height: 100%;
       object-fit: cover;
-      opacity: 0.5;
+      opacity: 0.4; 
     }
 
-    /* Main Content */
-    .content {
+    /* Hero Section (Top) */
+    .hero {
       position: relative;
       z-index: 1;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      height: 100%;
+      min-height: 100vh; /* Takes up full first screen */
       text-align: center;
       padding: 0 20px;
     }
     h1 {
-      font-size: 4rem;
+      font-size: 4.5rem;
       margin-bottom: 10px;
-      letter-spacing: 3px;
+      letter-spacing: 4px;
     }
     p.subtitle {
       font-size: 1.2rem;
-      color: #cccccc;
-      max-width: 500px;
+      color: #e0e0e0;
+      max-width: 550px;
       margin-bottom: 40px;
-      line-height: 1.5;
+      line-height: 1.6;
     }
 
     /* Waitlist Form */
@@ -63,12 +61,13 @@
       gap: 10px;
       width: 100%;
       max-width: 450px;
+      margin-bottom: 20px;
     }
     input[type="email"] {
       flex: 1;
       padding: 15px;
-      border: 1px solid #444;
-      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #555;
+      background: rgba(0, 0, 0, 0.6);
       color: #fff;
       border-radius: 5px;
       font-size: 1rem;
@@ -94,7 +93,7 @@
 
     /* Unmute Button */
     .unmute-btn {
-      position: absolute;
+      position: fixed; /* Keep it on screen when scrolling */
       top: 30px;
       right: 30px;
       background: rgba(0, 0, 0, 0.6);
@@ -104,23 +103,72 @@
       border-radius: 50px;
       cursor: pointer;
       font-size: 0.9rem;
-      z-index: 10;
+      z-index: 100;
       transition: background 0.3s;
     }
     .unmute-btn:hover {
       background: rgba(255, 255, 255, 0.2);
     }
 
+    /* Features Section */
+    .features-section {
+      position: relative;
+      z-index: 1;
+      background: linear-gradient(to bottom, rgba(10,10,10,0) 0%, rgba(10,10,10,0.95) 20%, rgba(10,10,10,1) 100%);
+      padding: 100px 20px;
+      text-align: center;
+    }
+    .features-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 60px;
+      color: #ffffff;
+    }
+    .feature-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .feature-card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 30px;
+      border-radius: 12px;
+      text-align: left;
+      transition: transform 0.3s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-5px);
+      background: rgba(255, 255, 255, 0.08);
+    }
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .feature-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+      margin-bottom: 15px;
+      color: #ffffff;
+    }
+    .feature-desc {
+      font-size: 0.95rem;
+      color: #aaaaaa;
+      line-height: 1.6;
+    }
+
     /* Legal Footer */
     .footer {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
+      position: relative;
+      z-index: 1;
+      background-color: #0a0a0a;
+      padding: 40px 20px;
       text-align: center;
-      z-index: 10;
+      border-top: 1px solid #222;
     }
     .footer p {
-      font-size: 0.75rem;
+      font-size: 0.85rem;
       color: #777777;
       margin: 5px 0;
     }
@@ -132,11 +180,24 @@
     .footer a:hover {
       color: #ffffff;
     }
+    
+    /* Scroll indicator */
+    .scroll-indicator {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      color: #888;
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+      40% {transform: translateY(-10px);}
+      60% {transform: translateY(-5px);}
+    }
   </style>
 </head>
 <body>
 
-  <!-- Background Video Placeholder -->
+  <!-- Background Video -->
   <div class="video-container">
     <video id="bg-video" autoplay loop muted playsinline>
       <source src="background.mp4" type="video/mp4">
@@ -148,8 +209,8 @@
     🔊 Tap for Sound
   </button>
 
-  <!-- Waitlist Content -->
-  <div class="content">
+  <!-- Hero Section -->
+  <div class="hero">
     <h1>LEELA</h1>
     <p class="subtitle">Transform your digital books into immersive, cinematic audio dramas. Join the waitlist for early access.</p>
     
@@ -157,6 +218,42 @@
       <input type="email" name="email" placeholder="Enter your email address" required>
       <button type="submit" class="submit-btn">Join Waitlist</button>
     </form>
+
+    <div class="scroll-indicator">
+      ↓ Scroll to discover features ↓
+    </div>
+  </div>
+
+  <!-- Features Section -->
+  <div class="features-section">
+    <h2>Why Leela?</h2>
+    <div class="feature-grid">
+      
+      <div class="feature-card">
+        <div class="feature-icon">🎭</div>
+        <div class="feature-title">Dynamic Multi-Voice Cast</div>
+        <div class="feature-desc">Experience books like a movie. Leela automatically assigns distinct, high-quality AI voices to different characters as they speak.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🎬</div>
+        <div class="feature-title">Cinematic Soundscapes</div>
+        <div class="feature-desc">Go beyond narration. Our engine generates subtle background ambiance and sound effects perfectly matched to the mood of the scene.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📚</div>
+        <div class="feature-title">Universal ePub Support</div>
+        <div class="feature-desc">No closed ecosystems. Just upload any standard, DRM-free ePub file from your library and let Leela instantly convert it.</div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🌙</div>
+        <div class="feature-title">Dark Mode First</div>
+        <div class="feature-desc">Designed specifically for late-night reading and listening. A sleek, distraction-free interface that rests easy on the eyes.</div>
+      </div>
+
+    </div>
   </div>
 
   <!-- Legal Footer -->
