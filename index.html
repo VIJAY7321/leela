@@ -1,1 +1,157 @@
-<h1>Leela-cinematic epub reader</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leela | Cinematic ePub Reader</title>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
+      overflow: hidden;
+    }
+    
+    /* Video Background */
+    .video-container {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+    .video-container video {
+      min-width: 100%;
+      min-height: 100%;
+      object-fit: cover;
+      opacity: 0.5; /* Darkens the video so text is readable */
+    }
+
+    /* Main Content */
+    .content {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      text-align: center;
+      padding: 0 20px;
+    }
+    h1 {
+      font-size: 4rem;
+      margin-bottom: 10px;
+      letter-spacing: 3px;
+    }
+    p {
+      font-size: 1.2rem;
+      color: #cccccc;
+      max-width: 500px;
+      margin-bottom: 40px;
+      line-height: 1.5;
+    }
+
+    /* Waitlist Form */
+    .waitlist-form {
+      display: flex;
+      gap: 10px;
+      width: 100%;
+      max-width: 450px;
+    }
+    input[type="email"] {
+      flex: 1;
+      padding: 15px;
+      border: 1px solid #444;
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-radius: 5px;
+      font-size: 1rem;
+      outline: none;
+    }
+    input[type="email"]::placeholder {
+      color: #aaa;
+    }
+    button.submit-btn {
+      padding: 15px 30px;
+      background-color: #ffffff;
+      color: #000000;
+      border: none;
+      border-radius: 5px;
+      font-size: 1rem;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    button.submit-btn:hover {
+      background-color: #cccccc;
+    }
+
+    /* Unmute Button */
+    .unmute-btn {
+      position: absolute;
+      bottom: 30px;
+      right: 30px;
+      background: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      padding: 10px 20px;
+      border-radius: 50px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      z-index: 10;
+      transition: background 0.3s;
+    }
+    .unmute-btn:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Background Video Placeholder -->
+  <div class="video-container">
+    <video id="bg-video" autoplay loop muted playsinline>
+      <source src="background.mp4" type="video/mp4">
+    </video>
+  </div>
+
+  <!-- Unmute Button -->
+  <button id="sound-btn" class="unmute-btn" onclick="toggleSound()">
+    🔊 Tap for Sound
+  </button>
+
+  <!-- Waitlist Content -->
+  <div class="content">
+    <h1>LEELA</h1>
+    <p>Transform your digital books into immersive, cinematic audio dramas. Join the waitlist for early access.</p>
+    
+    <form class="waitlist-form" action="YOUR_FORMSPREE_LINK" method="POST">
+      <input type="email" name="email" placeholder="Enter your email address" required>
+      <button type="submit" class="submit-btn">Join Waitlist</button>
+    </form>
+  </div>
+
+  <!-- Audio Script -->
+  <script>
+    function toggleSound() {
+      const video = document.getElementById('bg-video');
+      const button = document.getElementById('sound-btn');
+      
+      if (video.muted) {
+        video.muted = false;
+        button.innerHTML = '🔇 Mute Sound';
+      } else {
+        video.muted = true;
+        button.innerHTML = '🔊 Tap for Sound';
+      }
+    }
+  </script>
+
+</body>
+</html>
